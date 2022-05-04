@@ -25,7 +25,8 @@ $ sudo su - eksadmin
 ```
 ``` sh
 $ git clone https://github.com/mylandmarktechs/eks-terraform-setup
-$ cd eks-terraform-setup
+$ mv eks-terraform-setup/ eks
+$ cd eks
 # install terraform using a bash shell script
 $ sh terraform-install.sh
 # OR install terraform by running the commands below
@@ -76,12 +77,13 @@ $ terraform apply --auto-approve
 $ terraform destroy --auto-approve
 
 ## create the kubeconfig file  
-$ mkdir .kube/ 
-$ vi .kube/config
+$ mkdir ~/.kube/ 
+$ vi ~/.kube/config
 $ kubectl get pod
 $ #!/bin/bash 
 $ sh iam-authenticator.sh 
 $ kubectl get pod
+$ sudo su - eksadmin
 ## deploy cluster auto scaler
 $ kubectl apply -f clusterautoscaler.yml
 
